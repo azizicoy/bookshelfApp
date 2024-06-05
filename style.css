@@ -102,7 +102,35 @@ section {
   border-radius: 10px;
   border: 1px solid var(--bgColor);
 }
-
+.header_bookUnread,
+.header_bookRead {
+  width: 100%;
+  border-bottom: 1px solid black;
+  margin-bottom: 1rem;
+}
 input {
   font-size: 16px;
+}
+
+@media only screen and (max-width: 1024px) {
+  .wrapper {
+    margin: 0;
+  }
+
+  .wrapper .container {
+    width: 100%;
+  }
+
+  .form {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 414px) {
+  .undo-button,
+  .check-button,
+  .trash-button {
+    width: 24px;
+    height: 24px;
+  }
 }

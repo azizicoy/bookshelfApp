@@ -2,11 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title>Bookshelf App</title>
-
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -24,41 +22,47 @@
         <!-- ============ INPUT BOOK ======================= -->
         <section class="inputBook">
           <h2>Masukkan Nama Buku</h2>
-          <form action="" class="form" id="form">
+          <form id="form">
             <div class="input-judul-container">
               <label for="judul">Judul</label>
-              <input type="text" id="judul" name="judul" />
+              <input type="text" id="judul" name="judul" required />
             </div>
             <div class="input-penulis-container">
               <label for="penulis">Penulis</label>
-              <input type="text" id="penulis" name="penulis" />
+              <input type="text" id="penulis" name="penulis" required />
             </div>
             <div class="input-tahun-container">
               <label for="tahun">Tahun</label>
-              <input type="date" id="tahun" name="tahun" />
+              <input type="date" id="tahun" name="tahun" required />
             </div>
             <button id="inputSubmit" type="submit">SIMPAN</button>
           </form>
         </section>
+        <!-- ============ END INPUT BOOK ==================== -->
 
         <!-- =============== STATUS BUKU ================ -->
-
         <section class="bookUnread">
-          <h2>Belum Selesai Dibaca</h2>
+          <div class="header_bookUnread">
+            <h2>Belum Selesai Dibaca</h2>
+          </div>
           <div class="incompleteBookshelfList" id="belumSelesaiDibaca"></div>
         </section>
 
         <section class="bookRead">
-          <h2>Selesai Dibaca</h2>
+          <div class="header_bookRead">
+            <h2>Selesai Dibaca</h2>
+          </div>
           <div class="completeBookshelfList" id="selesaiDibaca"></div>
         </section>
+        <!-- =============== END STATUS BUKU =============== -->
       </div>
     </main>
     <!-- ==================== END MAIN ========================== -->
 
     <!-- ===================== FOOTER ========================== -->
     <footer></footer>
-    <!-- ====================== END FOOTER -->
+    <!-- ====================== END FOOTER ====================== -->
+
     <script src="main.js"></script>
   </body>
 </html>

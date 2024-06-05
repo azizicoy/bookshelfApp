@@ -6,9 +6,9 @@ document.addEventListener('DOMContentLoaded', function () {
     addBook();
   });
 
-  const todos = [];
-  const RENDER_EVENT = 'render-todo';
-  const STORAGE_KEY = 'TODO_APPS';
+  const books = [];
+  const RENDER_EVENT = 'render-book';
+  const STORAGE_KEY = 'BOOK_APPS';
 
   function generateId() {
     return +new Date();
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const generatedID = generateId();
     const bookObject = generateBookObject(generatedID, inputJudul, inputPenulis, inputTahun, isComplete);
-    todos.push(bookObject);
+    books.push(bookObject);
 
     document.dispatchEvent(new Event(RENDER_EVENT));
     saveData();
@@ -56,6 +56,14 @@ document.addEventListener('DOMContentLoaded', function () {
     container.classList.add('item', 'shadow');
     container.append(textContainer);
     container.setAttribute('id', `book-${bookObject.id}`);
+
+    const trashButton = document.createElement('button');
+    trashButton.classList.add('trash-button');
+    trashButton.innerText = 'Hapus';
+
+    trashButton.addEventListener('click', function () {
+      removeTaskFromCompleted(bookObject.id);
+    });
 
     if (bookObject.isComplete) {
       const undoButton = document.createElement('button');
@@ -99,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function findBook(bookId) {
-    for (const bookItem of todos) {
+    for (const bookItem of books) {
       if (bookItem.id === bookId) {
         return bookItem;
       }
@@ -110,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function () {
   function removeTaskFromCompleted(bookId) {
     const bookTarget = findBookIndex(bookId);
     if (bookTarget === -1) return;
-    todos.splice(bookTarget, 1);
+    books.splice(bookTarget, 1);
     document.dispatchEvent(new Event(RENDER_EVENT));
     saveData();
   }
@@ -124,8 +132,8 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function findBookIndex(bookId) {
-    for (const index in todos) {
-      if (todos[index].id === bookId) {
+    for (const index in books) {
+      if (books[index].id === bookId) {
         return index;
       }
     }
@@ -134,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function saveData() {
     if (isStorageExist()) {
-      const parsed = JSON.stringify(todos);
+      const parsed = JSON.stringify(books);
       localStorage.setItem(STORAGE_KEY, parsed);
     }
   }
@@ -153,7 +161,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (data !== null) {
       for (const book of data) {
-        todos.push(book);
+        books.push(book);
       }
     }
 
@@ -167,7 +175,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const completedBookshelfList = document.getElementById('selesaiDibaca');
     completedBookshelfList.innerHTML = '';
 
-    for (const bookItem of todos) {
+    for (const bookItem of books) {
       const bookElement = makeBook(bookItem);
       if (!bookItem.isComplete) {
         uncompletedBookshelfList.append(bookElement);

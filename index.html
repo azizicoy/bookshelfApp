@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Bookshelf App</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- =============== HEADER =====================-->
+    <header>
+      <nav class="navbar">
+        <h1>Bookshelf Application</h1>
+      </nav>
+    </header>
+    <!-- =============== END HEADER ==================== -->
+
+    <!-- ===================== MAIN ======================== -->
+    <main>
+      <div class="container">
+        <!-- ============ INPUT BOOK ======================= -->
+        <section class="inputBook">
+          <h2>Masukkan Nama Buku</h2>
+          <form action="" class="form" id="form">
+            <div class="input-judul-container">
+              <label for="judul">Judul</label>
+              <input type="text" id="judul" name="judul" />
+            </div>
+            <div class="input-penulis-container">
+              <label for="penulis">Penulis</label>
+              <input type="text" id="penulis" name="penulis" />
+            </div>
+            <div class="input-tahun-container">
+              <label for="tahun">Tahun</label>
+              <input type="date" id="tahun" name="tahun" />
+            </div>
+            <button id="inputSubmit" type="submit">SIMPAN</button>
+          </form>
+        </section>
+
+        <!-- =============== STATUS BUKU ================ -->
+
+        <section class="bookUnread">
+          <h2>Belum Selesai Dibaca</h2>
+          <div class="incompleteBookshelfList" id="belumSelesaiDibaca"></div>
+        </section>
+
+        <section class="bookRead">
+          <h2>Selesai Dibaca</h2>
+          <div class="completeBookshelfList" id="selesaiDibaca"></div>
+        </section>
+      </div>
+    </main>
+    <!-- ==================== END MAIN ========================== -->
+
+    <!-- ===================== FOOTER ========================== -->
+    <footer></footer>
+    <!-- ====================== END FOOTER -->
+    <script src="main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,108 @@
+/* GOOGLE FONTS */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+/* COLORS */
+
+/* HSL H:212, S:52, L:49  */
+:root {
+  --navbar: #244b80; /* Untuk Navbar */
+
+  --bgColor: #2b5e9e; /* untuk Background color */
+  --secondBgColor: #c8d9ef; /* untuk Background color kedua*/
+
+  --textPrimary: #f3f6fc; /* Untuk Teks Utama */
+  --textSecondary: #2b5e9e; /* Untuk Teks Kedua */
+  --textPrimaryBold: #c8d9ef; /* Untuk Teks Utama Tebal */
+  --textSecondaryBold: #15233c; /* Untuk Teks Kedua Tebal*/
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* ===================== NAVBAR ======================== */
+.navbar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--navbar);
+  color: var(--textPrimary);
+  padding: 0.6rem 0;
+}
+
+/* ==================== CONTAINER ======================= */
+main {
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+input {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  border-radius: 2px;
+}
+
+button {
+  font-weight: 700;
+  border: 0;
+  border-radius: 5px;
+  display: block;
+  width: 100%;
+  padding: 8px;
+  cursor: pointer;
+  background-color: #244b80;
+  color: var(--textPrimaryBold);
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+section {
+  margin: 1rem 0;
+}
+.inputBook {
+  width: 50%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+.inputBook > h2 {
+  margin: 5px 0;
+  text-align: center;
+}
+.input-judul-container,
+.input-penulis-container,
+.input-tahun-container {
+  display: block;
+  margin: 8px 0;
+}
+
+.input-judul-container > label {
+  font-weight: 500;
+}
+
+.bookRead,
+.bookUnread {
+  margin: 16px 0 0 0;
+  border: 1px solid black;
+  padding: 16px;
+  border-radius: 10px;
+  border: 1px solid var(--bgColor);
+}
+
+input {
+  font-size: 16px;
+}

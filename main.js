@@ -59,46 +59,38 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const trashButton = document.createElement('button');
     trashButton.classList.add('trash-button');
-    trashButton.innerText = 'Hapus';
 
+    // Event listener untuk menghapus buku
     trashButton.addEventListener('click', function () {
-      removeTaskFromCompleted(bookObject.id);
+      removeBookFromCompleted(bookObject.id);
     });
 
     if (bookObject.isComplete) {
       const undoButton = document.createElement('button');
       undoButton.classList.add('undo-button');
-      undoButton.innerText = 'Belum Selesai';
 
+      // Event listener untuk mengubah status buku menjadi belum selesai
       undoButton.addEventListener('click', function () {
-        undoTaskFromCompleted(bookObject.id);
-      });
-
-      const trashButton = document.createElement('button');
-      trashButton.classList.add('trash-button');
-      trashButton.innerText = 'Hapus';
-
-      trashButton.addEventListener('click', function () {
-        removeTaskFromCompleted(bookObject.id);
+        undoBookFromCompleted(bookObject.id);
       });
 
       container.append(undoButton, trashButton);
     } else {
       const checkButton = document.createElement('button');
       checkButton.classList.add('check-button');
-      checkButton.innerText = 'Selesai';
 
+      // Event listener untuk mengubah status buku menjadi selesai
       checkButton.addEventListener('click', function () {
-        addTaskToCompleted(bookObject.id);
+        addBookToCompleted(bookObject.id);
       });
 
-      container.append(checkButton);
+      container.append(checkButton, trashButton); // Tambahkan tombol hapus
     }
 
     return container;
   }
 
-  function addTaskToCompleted(bookId) {
+  function addBookToCompleted(bookId) {
     const bookTarget = findBook(bookId);
     if (bookTarget == null) return;
     bookTarget.isComplete = true;
@@ -115,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function () {
     return null;
   }
 
-  function removeTaskFromCompleted(bookId) {
+  function removeBookFromCompleted(bookId) {
     const bookTarget = findBookIndex(bookId);
     if (bookTarget === -1) return;
     books.splice(bookTarget, 1);
@@ -123,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function () {
     saveData();
   }
 
-  function undoTaskFromCompleted(bookId) {
+  function undoBookFromCompleted(bookId) {
     const bookTarget = findBook(bookId);
     if (bookTarget == null) return;
     bookTarget.isComplete = false;

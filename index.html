@@ -7,61 +7,45 @@
     <title>Bookshelf App</title>
     <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
-    <!-- =============== HEADER =====================-->
     <header>
-      <nav class="navbar">
-        <h1>Bookshelf Application</h1>
-      </nav>
+      <h1>Todo List</h1>
     </header>
-    <!-- =============== END HEADER ==================== -->
 
-    <!-- ===================== MAIN ======================== -->
-    <main>
-      <div class="container">
-        <!-- ============ INPUT BOOK ======================= -->
-        <section class="inputBook">
-          <h2>Masukkan Nama Buku</h2>
-          <form id="form">
-            <div class="input-judul-container">
-              <label for="judul">Judul</label>
-              <input type="text" id="judul" name="judul" required />
-            </div>
-            <div class="input-penulis-container">
-              <label for="penulis">Penulis</label>
-              <input type="text" id="penulis" name="penulis" required />
-            </div>
-            <div class="input-tahun-container">
-              <label for="tahun">Tahun</label>
-              <input type="date" id="tahun" name="tahun" required />
-            </div>
-            <button id="inputSubmit" type="submit">SIMPAN</button>
-          </form>
-        </section>
-        <!-- ============ END INPUT BOOK ==================== -->
-
-        <!-- =============== STATUS BUKU ================ -->
-        <section class="bookUnread">
-          <div class="header_bookUnread">
-            <h2>Belum Selesai Dibaca</h2>
+    <div class="wrapper">
+      <div class="container bg-white shadow" id="add-todo">
+        <h2 class="container-header text-center">Masukkan Nama Buku</h2>
+        <form class="form" action="#" id="form">
+          <div class="form-group form-title">
+            <label for="judul">Judul</label>
+            <input type="text" id="judul" name="judul" required />
           </div>
-          <div class="incompleteBookshelfList" id="belumSelesaiDibaca"></div>
-        </section>
-
-        <section class="bookRead">
-          <div class="header_bookRead">
-            <h2>Selesai Dibaca</h2>
+          <div class="form-group form-title">
+            <label for="penulis">Penulis</label>
+            <input type="text" id="penulis" name="penulis" required />
           </div>
-          <div class="completeBookshelfList" id="selesaiDibaca"></div>
-        </section>
-        <!-- =============== END STATUS BUKU =============== -->
+          <div class="form-group form-title">
+            <label for="tahun">Tahun</label>
+            <input type="number" id="tahun" name="tahun" required />
+          </div>
+          <input type="submit" value="SIMPAN" name="Submit" class="btn-submit" />
+        </form>
       </div>
-    </main>
-    <!-- ==================== END MAIN ========================== -->
 
-    <!-- ===================== FOOTER ========================== -->
-    <footer></footer>
-    <!-- ====================== END FOOTER ====================== -->
+      <!-- ================= BUKU BELUM SELESAI ================= -->
+      <div class="container">
+        <h2 class="container-header">Belum Selesai Dibaca</h2>
+
+        <div class="list-item" id="belumSelesaiDibaca"></div>
+      </div>
+
+      <!-- ============== BUKU SUDAH SELESAI ===================== -->
+      <div class="container">
+        <h2 class="container-header">Selesai Dibaca</h2>
+        <div class="list-item" id="selesaiDibaca"></div>
+      </div>
+    </div>
 
     <script src="main.js"></script>
   </body>
